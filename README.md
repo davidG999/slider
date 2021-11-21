@@ -1,0 +1,1 @@
+# Nice slider w/ pure JS
