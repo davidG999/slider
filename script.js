@@ -6,7 +6,7 @@ const container = document.querySelector('.container')
 const mainSlide = document.querySelector('.main-slide')
 const slidesCount = mainSlide.querySelectorAll('div').length
 
-let activeSlideIndex = 0;
+let activeSlideIndex = 0
 
 sidebar.style.top = `-${(slidesCount - 1) * 100}vh`
 
@@ -22,6 +22,16 @@ document.addEventListener('keydown', (event) => {
   if (event.key === 'ArrowUp') {
     changeSlide('up')
   } else if (event.key === 'ArrowDown') {
+    changeSlide('down')
+  }
+})
+
+document.addEventListener('wheel', (event) => {
+  const deltaY = Math.sign(event.deltaY)
+  event.preventDefault()
+  if (deltaY < 0) {
+    changeSlide('up')
+  } else {
     changeSlide('down')
   }
 })
